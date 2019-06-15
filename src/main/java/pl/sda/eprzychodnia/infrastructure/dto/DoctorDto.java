@@ -1,11 +1,9 @@
 package pl.sda.eprzychodnia.infrastructure.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Setter
 @Getter
 @Builder
 @NoArgsConstructor
@@ -14,4 +12,5 @@ public class DoctorDto {
     private Long id;
     private String name;
     private String surname;
+    private String specialization;
 }

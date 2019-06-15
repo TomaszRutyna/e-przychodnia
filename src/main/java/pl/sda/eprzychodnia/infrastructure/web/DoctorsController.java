@@ -2,11 +2,11 @@ package pl.sda.eprzychodnia.infrastructure.web;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sda.eprzychodnia.domain.DoctorFinder;
+import pl.sda.eprzychodnia.domain.DoctorService;
+import pl.sda.eprzychodnia.infrastructure.dto.DoctorDto;
 
 @Controller
 @RequestMapping("/doctor")
@@ -14,13 +14,28 @@ import pl.sda.eprzychodnia.domain.DoctorFinder;
 class DoctorsController {
 
     private final DoctorFinder doctorFinder;
+    private final DoctorService doctorService;
 
-    @GetMapping("/{specialization}")
+    @GetMapping("/get/{specialization}")
     ModelAndView getDoctors(@PathVariable String specialization) {
         ModelAndView modelAndView = new ModelAndView("doctors.html");
         modelAndView.addObject("specialization", specialization);
         modelAndView.addObject("doctors", doctorFinder.findBySpecialization(specialization));
         return modelAndView;
+    }
+
+    @GetMapping("/create")
+    ModelAndView createDoctorView() {
+        ModelAndView modelAndView = new ModelAndView("createDoctor.html");
+        modelAndView.addObject("doctor", new DoctorDto());
+        return modelAndView;
+    }
+
+    @PostMapping("/create")
+    String createDoctor(@ModelAttribute DoctorDto doctor) {
+        doctorService.create(doctor);
+
+        return "redirect:/";
     }
 
 }
