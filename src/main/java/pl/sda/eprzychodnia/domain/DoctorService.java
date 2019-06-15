@@ -20,4 +20,8 @@ public class DoctorService {
                 .build();
         doctorRepository.save(doctor);
     }
+
+    public void delete(Long doctorId) {
+        doctorRepository.deleteById(doctorId);
+    }
 }

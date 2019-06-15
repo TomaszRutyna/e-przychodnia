@@ -38,4 +38,10 @@ class DoctorsController {
         return "redirect:/";
     }
 
+    @GetMapping("/delete")
+    String deleteDoctor(@RequestParam Long id) {
+        doctorService.delete(id);
+
+        return "redirect:/";
+    }
 }
