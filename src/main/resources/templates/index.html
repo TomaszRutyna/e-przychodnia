@@ -6,5 +6,10 @@
 </head>
 <body>
     Witam w mojej w przychodni <span th:text="${todayDate}"/>
+
+    <ul>
+        <li><a th:href="@{/doctor/okulista}">Okuliści</a></li>
+        <li><a th:href="@{/doctor/internista}">Interniści</a></li>
+    </ul>
 </body>
 </html>

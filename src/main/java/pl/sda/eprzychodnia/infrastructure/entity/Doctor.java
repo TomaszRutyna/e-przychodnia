@@ -1,7 +1,9 @@
 package pl.sda.eprzychodnia.infrastructure.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import pl.sda.eprzychodnia.infrastructure.dto.DoctorDto;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import java.util.Set;
 
 @Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "doctor")
 public class Doctor {

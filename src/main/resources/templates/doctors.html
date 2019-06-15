@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Przychodnia</title>
+</head>
+<body>
+    Doktorzy w specjalizacji <span th:text="${specialization}"/>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="doctor : ${doctors}">
+                <td><span th:text="${doctor.id}"/></td>
+                <td><span th:text="${doctor.name}"/></td>
+                <td><span th:text="${doctor.surname}"/></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
