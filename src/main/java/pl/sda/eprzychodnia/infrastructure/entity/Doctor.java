@@ -34,6 +34,7 @@ public class Doctor {
                 .id(id)
                 .name(name)
                 .surname(surname)
+                .specialization(specialization)
                 .build();
     }
 }

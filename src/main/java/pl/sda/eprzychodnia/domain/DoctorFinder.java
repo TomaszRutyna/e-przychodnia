@@ -21,4 +21,10 @@ public class DoctorFinder {
                 .map(Doctor::toDto)
                 .collect(Collectors.toList());
     }
+
+    public DoctorDto findById(Long id) {
+        return doctorRepository.findById(id)
+                .map(Doctor::toDto)
+                .orElseThrow(() -> new IllegalStateException("Nie istnieje taki lekarz"));
+    }
 }

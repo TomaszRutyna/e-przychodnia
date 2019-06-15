@@ -20,6 +20,7 @@
                 <td><span th:text="${doctor.id}"/></td>
                 <td><span th:text="${doctor.name}"/></td>
                 <td><span th:text="${doctor.surname}"/></td>
+                <td><a th:href="@{../edit?id=} + ${doctor.id}">Edytuj</a></td>
                 <td><a th:href="@{../delete?id=} + ${doctor.id}">Usuń</a></td>
             </tr>
         </tbody>

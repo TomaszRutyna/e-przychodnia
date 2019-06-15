@@ -14,6 +14,7 @@ public class DoctorService {
 
     public void create(DoctorDto dto) {
         Doctor doctor = Doctor.builder()
+                .id(dto.getId())
                 .name(dto.getName())
                 .surname(dto.getSurname())
                 .specialization(dto.getSpecialization())

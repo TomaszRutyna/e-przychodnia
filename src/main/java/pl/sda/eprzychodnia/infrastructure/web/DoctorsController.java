@@ -44,4 +44,11 @@ class DoctorsController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/edit")
+    ModelAndView editDoctor(@RequestParam Long id) {
+        ModelAndView modelAndView = new ModelAndView("createDoctor.html");
+        modelAndView.addObject("doctor", doctorFinder.findById(id));
+        return modelAndView;
+    }
 }
