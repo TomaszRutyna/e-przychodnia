@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Przychodnia</title>
+</head>
+<body>
+
+
+    <form th:action="@{/authenticate}" method="POST" >
+        <table>
+            <tr><td>Login:</td><td><input type="text" id="username" name="username"/></td></tr>
+            <tr><td>Password:</td><td><input type="text" id="password" name="password"/></td></tr>
+
+            <tr><td></td><td> <button type="submit">Zaloguj</button></td></tr>
+        </table>
+    </form>
+
+</body>
+</html>

@@ -34,7 +34,7 @@ class DoctorsController {
 
     @PostMapping("/create")
     String createDoctor(@ModelAttribute DoctorDto doctor) {
-        doctorService.create(doctor);
+        doctorService.createOrUpdate(doctor);
 
         return "redirect:/";
     }

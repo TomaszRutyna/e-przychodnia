@@ -12,7 +12,7 @@ public class DoctorService {
 
     private final DoctorRepository doctorRepository;
 
-    public void create(DoctorDto dto) {
+    public void createOrUpdate(DoctorDto dto) {
         Doctor doctor = Doctor.builder()
                 .id(dto.getId())
                 .name(dto.getName())
