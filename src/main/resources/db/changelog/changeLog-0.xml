@@ -1,0 +1,83 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="trutyna (generated)" id="1560684595730-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-2">
+        <createTable tableName="doctor">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="doctor_pkey"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="specialization" type="VARCHAR(255)"/>
+            <column name="second_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-3">
+        <createTable tableName="doctor_availabilities">
+            <column name="doctor_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="doctor_availabilities_pkey"/>
+            </column>
+            <column name="availabilities_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="doctor_availabilities_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-4">
+        <createTable tableName="doctor_availability">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="doctor_availability_pkey"/>
+            </column>
+            <column name="available_from" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="available_to" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-5">
+        <createTable tableName="user_roles">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="user_roles_pkey"/>
+            </column>
+            <column name="role" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-6">
+        <createTable tableName="users">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column name="login" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-7">
+        <createTable tableName="users_roles">
+            <column name="user_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="users_roles_pkey"/>
+            </column>
+            <column name="roles_id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="users_roles_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-8">
+        <addUniqueConstraint columnNames="role" constraintName="uk_c519w0l613l023tayy895chpd" tableName="user_roles"/>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-9">
+        <addUniqueConstraint columnNames="availabilities_id" constraintName="uk_ljp3kfoycfqt45wmm4k864efi" tableName="doctor_availabilities"/>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-10">
+        <addUniqueConstraint columnNames="login" constraintName="uk_ow0gan20590jrb00upg3va2fn" tableName="users"/>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-11">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="users_roles" constraintName="fk2o0jvgh89lemvvo17cbqvdxaa" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-12">
+        <addForeignKeyConstraint baseColumnNames="availabilities_id" baseTableName="doctor_availabilities" constraintName="fk5l404vh1gdw7967q1rmiibj8n" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="doctor_availability" validate="true"/>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-13">
+        <addForeignKeyConstraint baseColumnNames="doctor_id" baseTableName="doctor_availabilities" constraintName="fkmifjgst5skfhpy55n60fy4s09" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="doctor" validate="true"/>
+    </changeSet>
+    <changeSet author="trutyna (generated)" id="1560684595730-14">
+        <addForeignKeyConstraint baseColumnNames="roles_id" baseTableName="users_roles" constraintName="fkr7n16jrocdrem7nca7dasjf12" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="user_roles" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
