@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="trutyna" id="1560684595730-31">
+        <insert schemaName="public"
+                tableName="user_roles">
+            <column name="id" value="1"/>
+            <column name="role" value="ROLE_USER"/>
+        </insert>
+    </changeSet>
+    <changeSet author="trutyna" id="1560684595730-32">
+        <insert schemaName="public"
+                tableName="users">
+            <column name="id" value="1"/>
+            <column name="login" value="user"/>
+            <column name="password" value="$2a$10$iNWL3dCpWChiBQGU6HAUxOs6iq6ev2nOk6TqlG1T24rX7DFdDvpi."/>
+        </insert>
+    </changeSet>
+    <changeSet author="trutyna" id="1560684595730-33">
+        <insert schemaName="public"
+                tableName="users_roles">
+            <column name="user_id" value="1"/>
+            <column name="roles_id" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
