@@ -11,6 +11,26 @@
         <li><a th:href="@{/doctor/get/okulista}">Okuliści</a></li>
         <li><a th:href="@{/doctor/get/internista}">Interniści</a></li>
     </ul>
-    <a th:href="@{/doctor/create}">Utworz nowego doktora</a>
+
+    <div sec:authorize="hasRole('USER')">
+        <a th:href="@{/doctor/create}">Utworz nowego doktora</a>
+    </div>
+
+    <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+
+        Zalogowany jako: <span sec:authentication="name"></span> |
+        Rola: <span sec:authentication="principal.authorities"></span>
+
+        <div>
+            <form action="#" th:action="@{/logout}" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+        </div>
+    </div>
+
+    <div th:fragment="login" class="logout" sec:authorize="isAnonymous()">
+
+        <a th:href="@{/login}">Zaloguj się</a>
+    </div>
 </body>
 </html>
