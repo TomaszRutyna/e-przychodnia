@@ -1,6 +1,7 @@
 package pl.sda.eprzychodnia.infrastructure.web;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -45,6 +46,7 @@ class DoctorsController {
         return "redirect:/";
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/edit")
     ModelAndView editDoctor(@RequestParam Long id) {
         ModelAndView modelAndView = new ModelAndView("createDoctor.html");
