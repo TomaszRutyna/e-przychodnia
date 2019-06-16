@@ -22,14 +22,13 @@
         Rola: <span sec:authentication="principal.authorities"></span>
 
         <div>
-            <form action="#" th:action="@{/logout}" method="post">
+            <form th:action="@{/logout}" method="POST">
                 <input type="submit" value="Logout" />
             </form>
         </div>
     </div>
 
     <div th:fragment="login" class="logout" sec:authorize="isAnonymous()">
-
         <a th:href="@{/login}">Zaloguj się</a>
     </div>
 </body>
