@@ -1,4 +1,4 @@
-package pl.sda.eprzychodnia.infrastructure.client;
+package pl.sda.eprzychodnia.infrastructure.client.patients;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;

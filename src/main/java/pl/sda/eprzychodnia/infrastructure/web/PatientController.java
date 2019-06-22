@@ -3,7 +3,7 @@ package pl.sda.eprzychodnia.infrastructure.web;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.sda.eprzychodnia.infrastructure.client.PatientClient;
+import pl.sda.eprzychodnia.infrastructure.client.patients.PatientClient;
 import pl.sda.eprzychodnia.infrastructure.client.patients.dto.PatientDto;
 
 import java.util.List;
