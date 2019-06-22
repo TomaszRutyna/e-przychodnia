@@ -12,7 +12,13 @@
             <tr><td></td><td><input type="hidden" id="id" name="id" th:value="${doctor.id}"/></td></tr>
             <tr><td>Imie:</td><td><input type="text" id="name" name="name" th:value="${doctor.name}"/></td></tr>
             <tr><td>Nazwisko:</td><td><input type="text" id="surname" name="surname" th:value="${doctor.surname}"/></td></tr>
-            <tr><td>Specializacja:</td><td><input type="text" id="specialization" name="specialization" th:value="${doctor.specialization}"/></td></tr>
+            <tr><td>Specializacja:</td><td>
+                <select th:field="*{specialization}">
+                    <option th:each="i : ${specializations}" th:value="${i.id}" th:text="${i.label}"></option>
+                </select>
+            </td></tr>
+
+
 
             <tr><td></td><td> <button type="submit">Zatwierdź</button></td></tr>
         </table>

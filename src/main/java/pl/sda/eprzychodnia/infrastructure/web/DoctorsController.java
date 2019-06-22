@@ -8,6 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.sda.eprzychodnia.domain.DoctorFinder;
 import pl.sda.eprzychodnia.domain.DoctorService;
 import pl.sda.eprzychodnia.infrastructure.dto.DoctorDto;
+import pl.sda.eprzychodnia.infrastructure.dto.SpecializationDto;
+import pl.sda.eprzychodnia.infrastructure.type.Specialization;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/doctor")
@@ -29,6 +34,10 @@ class DoctorsController {
     ModelAndView createDoctorView() {
         ModelAndView modelAndView = new ModelAndView("createDoctor.html");
         modelAndView.addObject("doctor", new DoctorDto());
+        modelAndView.addObject("specializations",
+                Arrays.stream(Specialization.values())
+                    .map(spec -> new SpecializationDto(spec, spec.getLabel()))
+                    .collect(Collectors.toList()));
         return modelAndView;
     }
 
