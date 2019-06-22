@@ -44,13 +44,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/*").permitAll()
+        http.authorizeRequests().antMatchers("/**", "/patient").permitAll()
                 .and().authorizeRequests().antMatchers("/doctor/create").hasRole("USER")
                 .and()
                     .formLogin()
                     .loginPage("/login")
                     .loginProcessingUrl("/authenticate")
-                    .defaultSuccessUrl("/")
                 .and()
                 .logout()
                     .logoutUrl("/logout")
