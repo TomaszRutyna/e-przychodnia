@@ -8,6 +8,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class DoctorDto {
     private Long id;
     private String name;
