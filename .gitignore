@@ -31,3 +31,5 @@ build/
 .vscode/
 
 *-ext.properties
+
+*.log

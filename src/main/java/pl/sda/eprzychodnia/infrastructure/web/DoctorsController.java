@@ -1,6 +1,8 @@
 package pl.sda.eprzychodnia.infrastructure.web;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -19,11 +21,16 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 class DoctorsController {
 
+    private final static Logger LOGGER = LoggerFactory.getLogger(DoctorsController.class);
+
     private final DoctorFinder doctorFinder;
     private final DoctorService doctorService;
 
     @GetMapping("/get/{specialization}")
     ModelAndView getDoctors(@PathVariable String specialization) {
+        LOGGER.info("Trying to get doctors by specialization");
+
+
         ModelAndView modelAndView = new ModelAndView("doctors.html");
         modelAndView.addObject("specialization", specialization);
         modelAndView.addObject("doctors", doctorFinder.findBySpecialization(specialization));
