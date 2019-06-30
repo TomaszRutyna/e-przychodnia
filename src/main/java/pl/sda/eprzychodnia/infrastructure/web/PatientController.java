@@ -43,7 +43,5 @@ public class PatientController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         client.delete(id);
         return ResponseEntity.status(204).build();
-
-
     }
 }
