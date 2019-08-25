@@ -30,8 +30,8 @@ public class SecurityUserDetailsService implements UserDetailsService {
                     + login + " not found");
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getLogin(),
-                user.getPassword(), mapRoles(user));
+        return new CustomUserDetails(user.getLogin(), user.getPassword(), mapRoles(user),
+                "Adam", "Małysz");
     }
 
     private List<GrantedAuthority> mapRoles(User user) {
