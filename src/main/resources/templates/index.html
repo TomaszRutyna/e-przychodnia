@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
     <meta charset="UTF-8">
     <title>E-Przychodnia</title>
 </head>
@@ -8,8 +9,8 @@
     Witam w mojej w przychodni <span th:text="${todayDate}"/>
 
     <ul>
-        <li><a th:href="@{/doctor/get/OCULIST}">Okuliści</a></li>
-        <li><a th:href="@{/doctor/get/INTERNIST}">Interniści</a></li>
+        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/OCULIST}">Okuliści</a></li>
+        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/INTERNIST}">Interniści</a></li>
     </ul>
 
     <div sec:authorize="hasRole('USER')">
