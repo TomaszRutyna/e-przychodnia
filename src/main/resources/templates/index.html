@@ -13,6 +13,8 @@
         <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/INTERNIST}">Interniści</a></li>
     </ul>
 
+    <a th:href="@{/visit/create}">Umow sie na wizyte</a>
+
     <div sec:authorize="hasRole('USER')">
         <a th:href="@{/doctor/create}">Utworz nowego doktora</a>
     </div>

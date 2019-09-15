@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+
+    <script th:src="@{/js/jquery.js}"></script>
+
+    <meta charset="UTF-8">
+    <title>E-Przychodnia</title>
+
+    <script>
+        $(document).ready(function() {
+
+           $('#specializations').on('change', function() {
+               $.ajax({
+                   url: "/api/doctors/" + $('#specializations').val(),
+                   type: "GET",
+                   dataType : "json"
+               }).done(function(response) {
+                   $('#doctors').html('');
+
+                   $.each(response, function(index, doctor) {
+                       $('#doctors').append('<option value="'+doctor.id+'">'
+                           + doctor.name + ' ' + doctor.surname + '</option>')
+                   })
+               })
+           });
+        });
+    </script>
+</head>
+<body>
+    <form th:action="@{/visit/create}" method="POST" th:object="${visit}">
+        <table>
+            <tr><td></td><td><input type="hidden" id="id" name="id" th:value="${visit.id}"/></td></tr>
+            <tr><td>Imie:</td><td><input type="text" id="name" name="name" th:value="${visit.name}"/></td></tr>
+            <tr><td>Nazwisko:</td><td><input type="text" id="surname" name="surname" th:value="${visit.surname}"/></td></tr>
+            <tr><td>Specializacja:</td><td>
+                <select id="specializations" th:field="*{specialization}">
+                    <option th:value="-1">Wybierz specjalizacje</option>
+                    <option th:each="i : ${specializations}" th:value="${i.id}" th:text="${i.label}"></option>
+                </select>
+            </td></tr>
+            <tr><td>Lekarz:</td><td>
+                <select id="doctors" th:field="*{doctor}"></select>
+            </td></tr>
+            <tr><td></td><td> <button type="submit">Zatwierdź</button></td></tr>
+        </table>
+    </form>
+
+</body>
+</html>
