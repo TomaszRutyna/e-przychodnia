@@ -6,23 +6,23 @@
     <title>E-Przychodnia</title>
 </head>
 <body>
-    Witam w mojej w przychodni <span th:text="${todayDate}"/>
+    Welcome in our medical facility <span th:text="${todayDate}"/>
 
     <ul>
-        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/OCULIST}">Okuliści</a></li>
-        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/INTERNIST}">Interniści</a></li>
+        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/OCULIST}">Oculists</a></li>
+        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/INTERNIST}">Inernists</a></li>
     </ul>
 
-    <a th:href="@{/visit/create}">Umow sie na wizyte</a>
+    <a th:href="@{/visit/create}">Schedule meeting</a>
 
     <div sec:authorize="hasRole('USER')">
-        <a th:href="@{/doctor/create}">Utworz nowego doktora</a>
+        <a th:href="@{/doctor/create}">Create new doctor</a>
     </div>
 
     <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
 
-        Zalogowany jako: <span sec:authentication="name"></span> |
-        Rola: <span sec:authentication="principal.authorities"></span>
+        Logged as: <span sec:authentication="name"></span> |
+        Role: <span sec:authentication="principal.authorities"></span>
 
         <div>
             <form th:action="@{/logout}" method="POST">
@@ -32,7 +32,7 @@
     </div>
 
     <div th:fragment="login" class="logout" sec:authorize="isAnonymous()">
-        <a th:href="@{/login}">Zaloguj się</a>
+        <a th:href="@{/login}">Login</a>
     </div>
 </body>
 </html>
