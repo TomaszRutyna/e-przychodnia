@@ -9,8 +9,8 @@
     Welcome in our medical facility <span th:text="${todayDate}"/>
 
     <ul>
-        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/OCULIST}">Oculists</a></li>
-        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/INTERNIST}">Inernists</a></li>
+        <li><a class="btn btn-danger" role="button" th:href="@{/doctor/get/OCULIST}">Oculists</a></li>
+        <li><a class="btn btn-danger" role="button" th:href="@{/doctor/get/INTERNIST}">Inernists</a></li>
     </ul>
 
     <a th:href="@{/visit/create}">Schedule meeting</a>
@@ -22,7 +22,6 @@
     <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
 
         Logged as: <span sec:authentication="name"></span> |
-        Role: <span sec:authentication="principal.authorities"></span>
 
         <div>
             <form th:action="@{/logout}" method="POST">
