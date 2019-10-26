@@ -9,8 +9,8 @@
     Witam w mojej w przychodni <span th:text="${todayDate}"/>
 
     <ul>
-        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/OCULIST}">Okuliści</a></li>
-        <li><a class="btn btn-primary" role="button" th:href="@{/doctor/get/INTERNIST}">Interniści</a></li>
+        <li><a class="btn btn-danger" role="button" th:href="@{/doctor/get/OCULIST}">Okuliści</a></li>
+        <li><a class="btn btn-danger" role="button" th:href="@{/doctor/get/INTERNIST}">Interniści</a></li>
     </ul>
 
     <a th:href="@{/visit/create}">Umow sie na wizyte</a>
@@ -22,7 +22,6 @@
     <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
 
         Zalogowany jako: <span sec:authentication="name"></span> |
-        Rola: <span sec:authentication="principal.authorities"></span>
 
         <div>
             <form th:action="@{/logout}" method="POST">
